@@ -10,7 +10,8 @@ Acesse o server com o ip e porta exibidos no terminal.
 Inicie a API com "python app.py".
 
 Certifique-se antes se possue os seguintes componentes instalados em sua máquina:
-Bs4-pip install bs4;
-Virtual env-pip install virtualenv;
-Requests-pip install requests.
+Bs4 -pip install bs4;
+Virtual env -pip install virtualenv;
+Requests -pip install requests;
+Flask -pip install flask.
 

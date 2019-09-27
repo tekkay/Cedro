@@ -18,12 +18,12 @@ app = Flask(__name__)
 
 nome_delinquente = ('osama') 
                
-@app.route('/', methods=['GET']) #era pra mudar a rota junto com a request.get, porém não consegui que funcionasse.
+@app.route('/', methods=['GET']) #era pra mudar a rota junto com a request.get, porem nao consegui que funcionasse.
 def crawler():
     res = requests.get("https://g1.globo.com/busca/?q=" + nome_delinquente)
     res.text
     soup = bs4.BeautifulSoup(res.text, 'lxml')
-    for link in soup.find_all(href=True and re.compile(noticia_ruin)):
+    for link in soup.find_all('a', href=True and re.compile('morte')): #tinha que filtrar pela list noticia_ruin.
         print(link['href'])
     return jsonify(link['href'])
         

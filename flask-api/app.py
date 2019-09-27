@@ -13,17 +13,16 @@ noticia_ruin = [
     'corrupto',
     'roubo'
 ]
-limit = 5
 app = Flask(__name__)
 
 nome_delinquente = ('osama') 
                
-@app.route('/', methods=['GET'])
+@app.route('/nome_delinquente', methods=['GET'])
 def crawler():
     res = requests.get("https://g1.globo.com/busca/?q=" + nome_delinquente)
     res.text
     soup = bs4.BeautifulSoup(res.text, 'lxml')
-    for link in soup.find_all('a', href=True, stop=3):
+    for link in soup.find_all('a', href=True):
         print(link['href'])
     return jsonify(link['href'])
         
